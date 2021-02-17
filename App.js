@@ -1,21 +1,47 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+import { View, Text } from 'react-native'
+import { createAppContainer } from 'react-navigation'
+import { createBottomTabNavigator } from 'react-navigation-tabs'
+import Icon from 'react-native-vector-icons/FontAwesome5'
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+import MyGardenScreen from './components/screens/MyGardenScreen'
+import TipsScreen from './components/screens/TipsScreen'
+import SettingsScreen from './components/screens/SettingsScreen'
+import ShoppingScreen from './components/screens/ShoppingScreen'
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+import {green, darkGreen, lightGreen} from './components/tools/globalVariables'
+
+
+var BottomNavigator = createBottomTabNavigator({
+  Astuces: TipsScreen,
+  'Mon jardin': MyGardenScreen,
+  Shopping: ShoppingScreen,
+  Settings: SettingsScreen
+},
+  {
+    defaultNavigationOptions: ({ navigation }) => ({
+      tabBarIcon: ({ tintColor }) => {
+        var iconName;
+        if (navigation.state.routeName === 'Astuces') {
+          iconName = 'lightbulb';
+        } else if (navigation.state.routeName === 'Mon jardin') {
+          iconName = 'seedling';
+        } else if (navigation.state.routeName === 'Shopping') {
+          iconName = 'shopping-basket';
+        } else if (navigation.state.routeName === 'Settings') {
+          iconName = 'cogs';
+        }
+
+        return <Icon name={iconName} size={20} color={tintColor} />;
+      },
+    }),
+    tabBarOptions: {
+      activeBackgroundColor: lightGreen,
+      activeTintColor: darkGreen,
+      inactiveTintColor: green,
+    }
+  }
+);
+
+var Navigation = createAppContainer(BottomNavigator);
+export default Navigation;

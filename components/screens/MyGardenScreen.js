@@ -13,7 +13,6 @@ function MyGardenScreen() {
   //     users.map((u, i) => <ListItem key={i} />)
   //   }
   // </Card>
-  const [modalVisible, setModalVisible] = useState(false);
   const [visible, setVisible] = useState(false);
 
   const toggleOverlay = () => {

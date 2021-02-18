@@ -1,20 +1,20 @@
 import React from 'react'
 import { View, Text, ScrollView } from 'react-native'
 
-import TipsCard from '../cards/TipsCard'
+import ShoppingCard from '../cards/ShoppingCard'
 
 function ShoppingScreen() {
   return (
     <View style={{ justifyContent: 'center', paddingTop: '8%' }}>
       <ScrollView>
-        <View style={{ flexDirection: 'row', marginHorizontal: '1%', flexWrap: 'wrap' }}>
+        {/* <View style={{ flexDirection: 'row', marginHorizontal: '1%', flexWrap: 'wrap' }}> */}
 
-          <TipsCard />
-          <TipsCard />
-          <TipsCard />
-          <TipsCard />
+          <ShoppingCard />
+          <ShoppingCard />
+          <ShoppingCard />
+          <ShoppingCard />
 
-        </View>
+        {/* </View> */}
       </ScrollView>
 
     </View>

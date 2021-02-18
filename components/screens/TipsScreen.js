@@ -6,15 +6,18 @@ import TipsCard from '../cards/TipsCard'
 function TipsScreen() {
 
   return (
-    <View style={{ flex: 1,backgroundColor: '#e67e22', justifyContent: 'center' }}>
-      <Text>Les astuces</Text>
+    <View style={{ justifyContent: 'center', paddingTop: '8%' }}>
       <ScrollView>
-        <TipsCard />
-      <TipsCard />
-      <TipsCard />
-      <TipsCard />
+        <View style={{ flexDirection: 'row', marginHorizontal: '1%', flexWrap: 'wrap' }}>
+
+          <TipsCard />
+          <TipsCard />
+          <TipsCard />
+          <TipsCard />
+
+        </View>
       </ScrollView>
-      
+
     </View>
   );
 }

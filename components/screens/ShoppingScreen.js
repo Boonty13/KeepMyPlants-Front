@@ -1,10 +1,22 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, ScrollView } from 'react-native'
+
+import TipsCard from '../cards/TipsCard'
 
 function ShoppingScreen() {
   return (
-    <View style={{ flex: 1, backgroundColor: '#e67c22', justifyContent: 'center' }}>
-      <Text>Ajouter une plante à mon jardin</Text>
+    <View style={{ justifyContent: 'center', paddingTop: '8%' }}>
+      <ScrollView>
+        <View style={{ flexDirection: 'row', marginHorizontal: '1%', flexWrap: 'wrap' }}>
+
+          <TipsCard />
+          <TipsCard />
+          <TipsCard />
+          <TipsCard />
+
+        </View>
+      </ScrollView>
+
     </View>
   );
 }
